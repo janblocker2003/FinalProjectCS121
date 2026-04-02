@@ -10,11 +10,13 @@ Begin with a summary of the project.  You'll need to include a brief summary as 
 
 
 ## Elevator Pitch 
-In addition to preparing your document, you will also need to prepare an 'elevator pitch' of your project.  This practice is a part of the tech culture.  
-The idea is to present the key ideas of your project to others in a clear way in only 60 seconds.  We will reserve a class day for you to present your 
-project to instructors and classmates.  Each student will have one minute to describe her project.  Note that you might actually not have a clear idea of 
-the project, or your projection may be unreasonable.  That is fine.  The main goal here is to get some clarity so you know how to proceed.  Generally 
-we'll do the elevator pitches mid-week so you have time to adjust your documentation for a preliminary grade.
+In addition to preparing your document, you will also need to prepare an 'elevator pitch' of your project.
+This practice is a part of the tech culture. The idea is to present the key ideas of your project to others
+in a clear way in only 60 seconds. We will reserve a class day for you to present your project to instructors
+and classmates. Each student will have one minute to describe her project. Note that you might actually not
+have a clear idea of the project, or your projection may be unreasonable. That is fine. The main goal here is
+to get some clarity so you know how to proceed. Generally we'll do the elevator pitches mid-week so you have
+time to adjust your documentation for a preliminary grade.
 
 
 ## UI Design 
