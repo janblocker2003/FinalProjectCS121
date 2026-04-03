@@ -90,7 +90,7 @@ direction TB
 ```
 
 
-# The Rest of Planning isn't Completed Yet:
+# The Rest of the Planning that isn't Completed Yet:
 
 
 ## Algorithm 
