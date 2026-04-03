@@ -1,39 +1,96 @@
-# FinalProjectCS121
+# FinalProjectCS121 Documentation
+
+
+## Initial Ideas
+- Rating people, storing in database, type names and leave comments
+- Note cards programming and testing yourself
+- Calendar creator storing events in specific months and then printing layout
+
 
 ## Summary of the Project
-Begin with a summary of the project.  You'll need to include a brief summary as well as a few specific goals and clarifications. This should include:
-- The proposed project title
-- A longer description of the project in paragraph form
-- A discussion of the intended users
-- Thoughts about exactly which problems this project is meant to solve.
-- Some thought about the technologies and structures you will need.
+
+
+### Title: 
+Note Card Databases Final Project
+
+### Longer description of the project in paragraph form: 
+Creating a database where you can create sets of notcards with words and definitions.
+The user will have a menu that allows them to either open up a notecard database that they named or create a new note card data base. If they choose to open a notecard database there will be a list of notecard databases they can choose from. These will be their previously created databases. In the notecard database they have opened up, they can create new notecard, delete note card, check notecard scores, or quiz themself on that database. The quix will type out the definition of a random note card and ask them what the word is. If their answer is correct they will gain 1 correct point and if their answer is incorrect then they will gain 1 incorrect point for that notecard. After each question a menu will say, continue or exit quiz. After they exit the quiz, they can choose check notecard scores and the system will print out each notecard word with the number of correct answers and number of incorrect answers, sorted showing the most incorrect answers first. From the new data base selection, they can create the database name or it will automatically be assigned a name, or they can add note cards, which will require adding a word and then a definition.
+
+### A discussion of the intended users and Thoughts about exactly which problems this project is meant to solve:
+This will be helpful for creating your own set of notecards when you need to memorize the words when shown the definitions. It is also helpful to have multiple databases of different notecard sets for different testing subjects you may need to remember. This would be useful for college or high school students. I think it could also be helpful to be able to keep track of which defintions you have the most trouble with. Then you could either delete the ones you have memorized well, or create new database specifically for ones you struggle to remember since rewriting could help as well. 
+
+### Some thought about the technologies and structures you will need:
+I think this will be similar formatting to the Bank project where I will use inheritance, templates, abstract classes, file saving, etc. to create a system that holds the memory of the notcards and only opens new classes of data when necessary based off the initial class.
 
 
 ## Elevator Pitch 
-In addition to preparing your document, you will also need to prepare an 'elevator pitch' of your project.
-This practice is a part of the tech culture. The idea is to present the key ideas of your project to others
-in a clear way in only 60 seconds. We will reserve a class day for you to present your project to instructors
-and classmates. Each student will have one minute to describe her project. Note that you might actually not
-have a clear idea of the project, or your projection may be unreasonable. That is fine. The main goal here is
-to get some clarity so you know how to proceed. Generally we'll do the elevator pitches mid-week so you have
-time to adjust your documentation for a preliminary grade.
+My project is meant to be an easy way to store and access databases of note cards for students who want to help themselves remember terms by both typing out the informationa and quizzing themselves over th information. These databases will keep track of how many times you get terms incorrect so that you can use that information to either delete the ones you have mastered or create a new database with the terms you are struggling to remember. This is an easy way to start your study process especially with complicated terminology that may be hard to remember. 
 
 
 ## UI Design 
-If your program has a GUI component, create a diagram for each page of the design. This doesn't have to be elaborate or beautiful, but it should give you enough information to make the programming easier:
-- Name and type of each element on the page
-- Layout hints if needed (row and column numbers for a grid layout)
-- Design and layout instructions (fonts, colors, borders)
-- Indicate which method will be called on any buttons, menus, or interactive elements
+As of right now I do not have the intention to create multiple userfaces just because I already have a lot I want to do within my multiple menus. I think my first step in implementing design would be to make th menu more appealing and the layout of the note cards when they are printed. First I would space things out in an appealing way, then I would create lines from text dashes to separate menus from the next menus or text that arrives on screen. Then I would try to see if I could create headings for different types of menus and make those headings bold and possibly bigger. Maybe I could change the background color.
 
 
 ## Data Design 
-What is the data your program manages
-What is the best way to represent that data (likely arrays or lists of object instances)
-Will the data need to be persistent?  How will you make that happen?
-Will the data need to be aggregated into a larger structure? How?
+The notecard databases will need to be persistent which will be achieved by serializing the classes involved. This will need to be broken into smaller companents like the bank on it project. I will be useing the bank on it project as reference if I get lost trying to plan out this many ideas. I will use the bank on it UML to help me create what I think my UML should look like.
+
 
 ## UML Diagram
+```mermaid
+---
+title: Notecard Database UML
+---
+classDiagram
+direction TB
+    class CollectiveDatabase {
+	    -String databasesString
+	    -ArrayList databaseNames
+	    +get
+	    +void menu()
+	    +void start()
+	    +void addNotesDatabase()
+    }
+
+    class NotesDatabase {
+	    -String name
+	    -String noteCardString
+	    -ArrayList notecards
+	    +void NotesDatabase()
+	    +void loadSampleNote()
+	    +void loadNotes()
+	    +void saveNotes()
+	    +void progressReport()
+	    +void addNoteCard()
+	    +void deleteNoteCard()
+	    +void sortNotes()
+    }
+
+    class NoteCard {
+	    -String word
+	    -String definition
+	    +void NoteCard()
+	    +void NoteCard(newWord, newDefinition)
+	    +String getWord()
+	    +void setWord()
+	    +String getDefinition()
+	    +void setDefinition()
+    }
+
+    class HasMenuInterface {
+        +String menu()
+	    +void start()
+    }
+
+    CollectiveDatabase --|> NotesDatabase
+    NotesDatabase --> NoteCard
+    NoteCard ..> HasMenuInterface
+    NotesDatabase ..> HasMenuInterface
+    CollectiveDatabase ..> HasMenuInterface
+```
+
+
+# The Rest of Planning isn't Completed Yet:
 
 
 ## Algorithm 
