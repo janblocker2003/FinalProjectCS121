@@ -46,9 +46,9 @@ direction TB
     class CollectiveDatabase {
 	    -String databasesString
 	    -ArrayList databaseNames
-	    +get
-	    +void menu()
+	    +String menu()
 	    +void start()
+		+String chooseDatabase
 	    +void addNotesDatabase()
     }
 
@@ -60,26 +60,36 @@ direction TB
 	    +void loadSampleNote()
 	    +void loadNotes()
 	    +void saveNotes()
+		+String menu()
+		+void start()
 	    +void progressReport()
 	    +void addNoteCard()
 	    +void deleteNoteCard()
 	    +void sortNotes()
+		+void quiz
     }
 
     class NoteCard {
 	    -String word
 	    -String definition
+		-int correct
+		-int incorrect
 	    +void NoteCard()
 	    +void NoteCard(newWord, newDefinition)
 	    +String getWord()
 	    +void setWord()
 	    +String getDefinition()
 	    +void setDefinition()
+		+String getCorrect()
+		+void setCorrect()
+		+String getIncorrect()
+		+void setIncorrect()
     }
 
     class HasMenuInterface {
         +String menu()
 	    +void start()
+		+static long serialVersionUID
     }
 
     CollectiveDatabase --|> NotesDatabase
