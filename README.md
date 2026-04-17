@@ -96,6 +96,53 @@ direction TB
 ## Algorithm 
 Generally, each data element will be a class, and each screen of a GUI system will also be a class. For each class in your project:
 
+### HasMenu.java I already wrote previously:
+```
+public interface HasMenu {
+	public String menu();
+	public void start();
+	public static long serialVersionUID = 1L;
+
+} // end interface
+```
+
+### NoteCard Class
+private atrributes:
+- a String called word
+- a String called definition
+- an int called correct
+- an int called incorrect
+public methods:
+- Void no paramater constructor
+- Void initializer with newWord and newDefinition parameters
+- getWord that returns the String word
+- Void setWord that creates the String word
+- getDefinition returns String definition
+- Void setDefinition creates the String defintion
+- getCorrect that converts correct to String and returns it
+- getIncorrect that converts incorrect to String and returns it
+- Void setCorrect which adds one to correct
+- Void setIncorrect which adds one to incorrect
+
+### NotesDatabase Class
+private attributes: 
+- a String called name
+- a String called noteCardString
+- an ArrayList called noteCards
+public methods:
+- Void no parameter constructor
+- Void loadSampleNote for testing
+- Void loadNotes to load in file of note cards
+- Void saveNotes to save to a file the note cards
+- Void progressReport that prints out the incorrect and correct for each notecard
+
+### Quiz(ArrayList)
+private attributes:
+- ArrayList of all the notecards from a selected database
+public methods:
+- 
+  
+
 ### Define the data members - what are the key data elements of the class
 - Describe the initializer - Initializers typically create and populate the data members.  Will your constructors take parameters? have default values?
 - Describe any other housekeeping that may need to happen in the constructor - initializer
