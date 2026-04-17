@@ -134,13 +134,24 @@ public methods:
 - Void loadSampleNote for testing
 - Void loadNotes to load in file of note cards
 - Void saveNotes to save to a file the note cards
-- Void progressReport that prints out the incorrect and correct for each notecard
+- menu that returns a String that indicates what is next in the start loop
+- Void start loop to choose between create new notecard, delete note card, check notecard scores, or quiz on the database
+- Void progressReport that prints out the word, incorrect, and correct for each notecard
+- Void addNoteCard that creates a new note card and adds it to the ArrayList and noteCardString
+- Void deleteNoteCard that deletes a note card and removes it from ArrayList and noteCardString
+- Void sortNotes which sorts the order note cards are printed in for progressReport
+- Void quiz which runs a loop that randomly prints the definition of notecards that user needs to type the word to and adds to incorrect/correct for those cards
 
-### Quiz(ArrayList)
+
+### CollectiveDatabase Class
 private attributes:
-- ArrayList of all the notecards from a selected database
+- a String called databasesString
+- an ArrayList called databaseNames
 public methods:
-- 
+- menu return answer for the start loop
+- chooseDatabase prints the list of database names and returns user choice
+- Void start loop to choose between open a database they already made or create a new database
+- Void addNotesDatabase creates a new database
   
 
 ### Define the data members - what are the key data elements of the class
