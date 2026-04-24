@@ -19,7 +19,10 @@ public class NotesDatabase implements HasMenu, Serializable {
 	
 	public void loadSampleNote() {
 		this.name = "Sample";
-		this.noteCardString = "Elephant,an animal,Turkey,flying animal";
+		noteCards.add(new NoteCard("Elephant", "land animal"));
+		noteCards.add(new NoteCard("Turkey", "sky animal"));
+		noteCards.add(new NoteCard("Piranha", "sea animal"));
+		//this.noteCardString = "Elephant,an animal,Turkey,flying animal";
 		// loadSampleCustomer within Bank.java shows good example of way to do this if this doesn't work well
 	} // end Load Sample Note
 	
@@ -151,6 +154,15 @@ public class NotesDatabase implements HasMenu, Serializable {
 	public void sortNotes() {
 		System.out.println("Pretend this works for now");
 	} // end sortNotes
+	
+	public String getName() {
+		return this.name;
+	} // end getName
+	
+	public void setName(String newName) {
+		this.name = newName;
+	} // end set Name
+	
 } // end Notes DataBase
 
 

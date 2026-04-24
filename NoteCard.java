@@ -19,7 +19,7 @@ public class NoteCard implements HasMenu, Serializable {
 		this.word = newWord;
 		this.definition = newDefinition;
 	} // end constructor with paramters
-	
+
 	public String getWord() {
 		return this.word;
 	} // end getWord

@@ -5,7 +5,9 @@ import java.io;
 public class CollectiveDatabase implements HasMenu, Serializable {
 	String databasesString;
 	DatabaseList databaseNames = new DatabaseList();
-	String chooseDatabase;
+	
+	String BOLD = "\u001B[1m";
+        String RESET = "\u001B[0m";
 
 	public String menu() {
 		Scanner input = new Scanner(System.in);
@@ -22,10 +24,6 @@ public class CollectiveDatabase implements HasMenu, Serializable {
 		String response = input.nextLine();
 	} // end menu
 	
-	public void printDatabases() {
-
-	} // end print databases
-	
 	public void start() {
 		boolean keepGoing = true;
 		while (keepGoing) {
@@ -35,18 +33,23 @@ public class CollectiveDatabase implements HasMenu, Serializable {
 			} // end if
 			else if (response.equals("1")) {
 				System.out.println();
-				System.out.println(BOLD + "Admin login" + RESET);
+				System.out.println(BOLD + "Opening a Note Card Database" + RESET);
 				System.out.println("______________________________");
 				System.out.println();
-				if (this.admin.login()) {
-					startAdmin();
+				chooseDatabase();
 				} // end if
 			} // end else if
 			else if (response.equals("2")) {
 				System.out.println();
-				System.out.println(BOLD + "Customer login" + RESET);
+				System.out.println(BOLD + "Create a new Note Card Database" + RESET);
 				System.out.println("______________________________");
 				System.out.println();
+				Database newDatabase = new Database();
+				Scanner input = new Scanner(System.in);
+				System.out.print("What would you like to name this database? ");
+				String newName = input.nextLine();
+				newDatabase.setname(newName);
+				newDatabase.start();
 			} // end else if
 			else {
 				System.out.println("Please enter 0, 1, or 2 ");
@@ -54,17 +57,28 @@ public class CollectiveDatabase implements HasMenu, Serializable {
 		} // end while
 	} // end start
 	
-	public void addUser() {
+	 public void chooseDatabase() {
+		for (i = 0, i < databaseNames.size(); i++) {
+			System.out.println(index + ") " + NotesDatabase.getName());
+		} // end for loop
 		Scanner input = new Scanner(System.in);
-		System.out.print("User name: ");
-		String userName = input.nextLine();
-		System.out.print("PIN: ");
-		String PIN = input.nextLine();
-		customers.add(new Customer(userName, PIN));
-	} // end addUser
-
-	String BOLD = "\u001B[1m";
-        String RESET = "\u001B[0m";
-
+		Scanner.out.print("Which database would you like to open? Enter the number next to the name of the database ");
+		String openThis = input.nextLine();
+		try {
+			int openThisInt = Integer.parseInt(openThis);
+			Database currentDatabase = new Database();
+			currentDatabase = databaseNames.get(openThisInt);
+			//for (i = 0, i < currentDatabase.size(); i++) {
+			currentDatabase.start();
+                	//} // end for loop
+		} // end try
+		catch (NumberFormatException e) {
+			System.out.println("Please enter a valid integer next time ");
+		} // end catch
+		catch (Exception e) {
+                        System.out.println(e.getMessage());
+                } // end catch 2
+        } // end choose database
+} // end collective database
 
 class DatabaseList extends ArrayList<NoteCardList> {};
