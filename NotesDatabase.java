@@ -113,7 +113,8 @@ public class NotesDatabase implements HasMenu, Serializable {
 	public void progressReport() {
 		for (NoteCard noteCard: noteCards) {
 			report = noteCard.getReport()
-
+			String formattedData = report.replace(",", "\n");
+			System.out.println(report);
 		} // end for
 	} // end progress report
 	
