@@ -51,5 +51,13 @@ public class NoteCard implements HasMenu, Serializable {
         public void setIncorrect(int newIncorrect) {
                 this.incorrect = newIncorrect;
         } // end setIncorrect
+	
+	public String getReport() {
+		String report = "NoteCard: " + this.getWord();
+		report += ", Definition: " + this.getDefinition();
+		report += ", getCorrect: " + this.getCorrect();
+		report += ", getIncorrect: " + this.getIncorrect();
+		return report;
+	} // end getReport
 
 } // end NoteCard class
