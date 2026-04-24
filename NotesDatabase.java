@@ -1,8 +1,8 @@
 // Notes Database
 
-import FinalProjectCS121.NoteCard.java;
+//import FinalProjectCS121.NoteCard.java;
 import java.util.*;
-import java.io;
+import java.io.*;
 
 public class NotesDatabase implements HasMenu, Serializable {
 	String name;
@@ -12,7 +12,7 @@ public class NotesDatabase implements HasMenu, Serializable {
 	String BOLD = "\u001B[1m";
         String RESET = "\u001B[0m";
 
-	public NotesDataBase() {
+	public void NotesDataBase() {
 		this.name = "";
 		this.noteCardString = "";
 	} // end NotesDataBase constructor with no parameters
@@ -35,7 +35,7 @@ public class NotesDatabase implements HasMenu, Serializable {
 			fi.close();
 		} // end try
 		catch (Exception e) {
-			System.out.println(e.Message());
+			System.out.println(e.getMessage());
 		} // end catch
 	} // end load notes
 	
@@ -55,7 +55,7 @@ public class NotesDatabase implements HasMenu, Serializable {
 	public String menu() {
 		Scanner input = new Scanner(System.in);
 		System.out.println();
-		System.out.println(BOLD + "NoteCard Menu " + RESET);
+		System.out.println(BOLD + "NoteCard Database Menu " + RESET);
 		System.out.println("______________________________");
 		System.out.println();
 		System.out.println("0) Exit "+ this.name + " database");
@@ -84,7 +84,6 @@ public class NotesDatabase implements HasMenu, Serializable {
 				System.out.println("______________________________");
 				System.out.println();
 				progressReport();
-				} // end if
 			} // end else if
 			else if (response.equals("2")) {
 				System.out.println();
@@ -115,7 +114,8 @@ public class NotesDatabase implements HasMenu, Serializable {
 	
 	public void progressReport() {
 		for (NoteCard noteCard: noteCards) {
-			report = noteCard.getReport()
+			String report;
+		       	report = noteCard.getReport();
 			String formattedData = report.replace(",", "\n");
 			System.out.println(report);
 		} // end for
@@ -131,11 +131,13 @@ public class NotesDatabase implements HasMenu, Serializable {
 	} // end add Note Card
 	
 	public void deleteNoteCard() {
-		for (i = 0, i < noteCards.size(); i++) {
-			System.out.println(index + ") " + noteCard.getWord());
+		for (int i = 0; i < noteCards.size(); i++) {
+			//System.out.println(i + ") " + noteCard.getWord());
+			System.out.println(i + ") " + noteCards.get(i).getWord());
+			//this one might work if the first one doesnt
 		} // end for loop
 		Scanner input = new Scanner(System.in);
-		Scanner.out.print("Which word do you want to delete? Enter the number next to the word ");
+		System.out.print("Which word do you want to delete? Enter the number next to the word ");
 		String deleteThis = input.nextLine();
 		try {
 			int deleteThisInt = Integer.parseInt(deleteThis);

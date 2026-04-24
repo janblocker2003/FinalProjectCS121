@@ -4,8 +4,8 @@ CollectiveDatabase.class: CollectiveDatabase.java NotesDatabase.class NoteCard.c
 NotesDatabase.class: NotesDatabase.java NoteCard.class HasMenu.class
 	javac -g NotesDatabase.java
 
-NoteCard.class: NoteCard.java HasMenu.class
-	javac -g Customer.java
+NoteCard.class: NoteCard.java
+	javac -g NoteCard.java
 
 HasMenu.class: HasMenu.java
 	javac -g HasMenu.java

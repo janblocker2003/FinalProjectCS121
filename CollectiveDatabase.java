@@ -1,6 +1,6 @@
-import FinalProjectCS121.NotesDatabase.java;
+//import FinalProjectCS121.NotesDatabase.java;
 import java.util.*;
-import java.io;
+import java.io.*;
 
 public class CollectiveDatabase implements HasMenu, Serializable {
 	String databasesString;
@@ -8,6 +8,14 @@ public class CollectiveDatabase implements HasMenu, Serializable {
 	
 	String BOLD = "\u001B[1m";
         String RESET = "\u001B[0m";
+	
+	public static void main(String[] args) {
+		new CollectiveDatabase();
+	} // end main
+	
+	public CollectiveDatabase() {
+		this.start();
+	} // end initializer (starts the whole thing)
 
 	public String menu() {
 		Scanner input = new Scanner(System.in);
@@ -37,18 +45,17 @@ public class CollectiveDatabase implements HasMenu, Serializable {
 				System.out.println("______________________________");
 				System.out.println();
 				chooseDatabase();
-				} // end if
 			} // end else if
 			else if (response.equals("2")) {
 				System.out.println();
 				System.out.println(BOLD + "Create a new Note Card Database" + RESET);
 				System.out.println("______________________________");
 				System.out.println();
-				Database newDatabase = new Database();
+				NotesDatabase newDatabase = new NotesDatabase();
 				Scanner input = new Scanner(System.in);
 				System.out.print("What would you like to name this database? ");
 				String newName = input.nextLine();
-				newDatabase.setname(newName);
+				newDatabase.setName(newName);
 				newDatabase.start();
 			} // end else if
 			else {
@@ -58,17 +65,22 @@ public class CollectiveDatabase implements HasMenu, Serializable {
 	} // end start
 	
 	 public void chooseDatabase() {
-		for (i = 0, i < databaseNames.size(); i++) {
-			System.out.println(index + ") " + NotesDatabase.getName());
-		} // end for loop
+		try {
+			for (int i = 0; i < databaseNames.size(); i++) {
+				System.out.println(i + ") " + NotesDatabase.getName());
+			} // end for loop
+		} // end try
+		catch {
+			System.out.println("There are not databases made yet");
+		} // end catch
 		Scanner input = new Scanner(System.in);
-		Scanner.out.print("Which database would you like to open? Enter the number next to the name of the database ");
+		System.out.print("Which database would you like to open? Enter the number next to the name of the database ");
 		String openThis = input.nextLine();
 		try {
 			int openThisInt = Integer.parseInt(openThis);
-			Database currentDatabase = new Database();
+			NotesDatabase currentDatabase = new NotesDatabase();
 			currentDatabase = databaseNames.get(openThisInt);
-			//for (i = 0, i < currentDatabase.size(); i++) {
+			//for (int i = 0; i < currentDatabase.size(); i++) {
 			currentDatabase.start();
                 	//} // end for loop
 		} // end try

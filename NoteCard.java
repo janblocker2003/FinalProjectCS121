@@ -3,7 +3,7 @@
 import java.util.*;
 import java.io.*;
 
-public class NoteCard implements HasMenu, Serializable {
+public class NoteCard implements Serializable {
 	
 	String word;
 	String definition;
@@ -24,7 +24,7 @@ public class NoteCard implements HasMenu, Serializable {
 		return this.word;
 	} // end getWord
 	
-	public void setWord(newWord) {
+	public void setWord(String newWord) {
 		this.word = newWord;
 	} // end setWord
 	
@@ -32,7 +32,7 @@ public class NoteCard implements HasMenu, Serializable {
                 return this.definition;
         } // end getDefinition
 
-        public void setDefinition(newDefinition) {
+        public void setDefinition(String newDefinition) {
                 this.definition = newDefinition;
         } // end setDefinition
 	
