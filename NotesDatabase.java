@@ -112,10 +112,20 @@ public class NotesDatabase implements HasMenu, Serializable {
 	
 	public void progressReport() {
 		for (NoteCard noteCard: noteCards) {
-			System.out.println(noteCard.getReport());
+			report = noteCard.getReport()
+
 		} // end for
 	} // end progress report
-
+	
+	public void addNoteCard() {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Word: ");
+		String word = input.nextLine();
+		System.out.print("Definition: ");
+		String definition = input.nextLine();
+		noteCards.add(new NoteCard(word, definition));
+	} // end add Note Card
+	
 } // end Notes DataBase
 
 class NoteCardList extends ArrayList<NoteCard> {};
