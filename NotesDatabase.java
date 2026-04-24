@@ -127,7 +127,34 @@ public class NotesDatabase implements HasMenu, Serializable {
 		noteCards.add(new NoteCard(word, definition));
 	} // end add Note Card
 	
+	public void deleteNoteCard() {
+		for (i = 0, i < noteCards.size(); i++) {
+			System.out.println(index + ") " + noteCard.getWord());
+		} // end for loop
+		Scanner input = new Scanner(System.in);
+		Scanner.out.print("Which word do you want to delete? Enter the number next to the word ");
+		String deleteThis = input.nextLine();
+		try {
+			int deleteThisInt = Integer.parseInt(deleteThis);
+			noteCards.remove(deleteThisInt);
+			System.out.println();
+			System.out.println("Word " + deleteThis + ") " + noteCards.get(deleteThisInt) + "has been removed from " + this.name);
+		} // end try
+		catch (NumberFormatException e) {
+			System.out.println("Please enter a valid integer next time ");
+		} // end catch 1
+		catch (Exception e) {
+                        System.out.println(e.getMessage());
+                } // end catch 2
+	} // end delete NoteCard
+	
+	public void sortNotes() {
+		System.out.println("Pretend this works for now");
+	} // end sortNotes
 } // end Notes DataBase
+
+
+//may need a getName and setName!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! if outside class needs to access name
 
 class NoteCardList extends ArrayList<NoteCard> {};
 
