@@ -67,7 +67,7 @@ public class CollectiveDatabase implements HasMenu, Serializable {
 	 public void chooseDatabase() {
 		try {
 			//for (int i = 0; i < databaseNames.size(); i++) {
-			for (NotesDatabase database : databaseName)
+			for (NotesDatabase database : databaseNames) {
 				System.out.println(i + ") " + database.getName());
 			} // end for loop
 		} // end try
@@ -80,7 +80,7 @@ public class CollectiveDatabase implements HasMenu, Serializable {
 		try {
 			int openThisInt = Integer.parseInt(openThis);
 			NotesDatabase currentDatabase = new NotesDatabase();
-			currentDatabase = databaseName.get(openThisInt);
+			currentDatabase = databaseNames.get(openThisInt);
 			//for (int i = 0; i < currentDatabase.size(); i++) {
 			currentDatabase.start();
                 	//} // end for loop
