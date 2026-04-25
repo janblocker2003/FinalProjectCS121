@@ -66,11 +66,12 @@ public class CollectiveDatabase implements HasMenu, Serializable {
 	
 	 public void chooseDatabase() {
 		try {
-			for (int i = 0; i < databaseNames.size(); i++) {
-				System.out.println(i + ") " + NotesDatabase.getName());
+			//for (int i = 0; i < databaseNames.size(); i++) {
+			for (NotesDatabase database : databaseName)
+				System.out.println(i + ") " + database.getName());
 			} // end for loop
 		} // end try
-		catch {
+		catch (Exception e) {
 			System.out.println("There are not databases made yet");
 		} // end catch
 		Scanner input = new Scanner(System.in);
@@ -79,7 +80,7 @@ public class CollectiveDatabase implements HasMenu, Serializable {
 		try {
 			int openThisInt = Integer.parseInt(openThis);
 			NotesDatabase currentDatabase = new NotesDatabase();
-			currentDatabase = databaseNames.get(openThisInt);
+			currentDatabase = databaseName.get(openThisInt);
 			//for (int i = 0; i < currentDatabase.size(); i++) {
 			currentDatabase.start();
                 	//} // end for loop
