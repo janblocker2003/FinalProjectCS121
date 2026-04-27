@@ -30,6 +30,7 @@ public class CollectiveDatabase implements HasMenu, Serializable {
 		System.out.println();
 		System.out.print("Your response: ");
 		String response = input.nextLine();
+		return response;
 	} // end menu
 	
 	public void start() {
@@ -68,8 +69,10 @@ public class CollectiveDatabase implements HasMenu, Serializable {
 		try {
 			//for (int i = 0; i < databaseNames.size(); i++) {
 			int index = 0;
-			for (NoteCardList database : databaseNames) {
-				System.out.println(index + ") " + database.get(index).getName());
+			for (NotesDatabase database : databaseNames) {
+				//for (NoteCardList database : databaseNames) {
+				//This code works if the Array List has Note Card Lists in it
+				System.out.println(index + ") " + database.getName());
 				index++;
 			} // end for loop
 		} // end try
@@ -81,10 +84,23 @@ public class CollectiveDatabase implements HasMenu, Serializable {
 		String openThis = input.nextLine();
 		try {
 			int openThisInt = Integer.parseInt(openThis);
+			//NoteCardList nc = databaseNames.get(openThisInt);
+			
+			// code below is illogical- need to be calling start from notes database not note card
+			//for (NoteCard correct : nc) {
+            		//	if (correct == databaseName[openThisInt]) {
+			//		correct.start();
+			// end if
+			// end for
+			
+			NotesDatabase db = databaseNames.get(openThisInt);
+                        db.start();
+			//this code works if the Array List has Notes Databases in it
+
 			//NotesDatabase currentDatabase = new NotesDatabase();
 			//currentDatabase = databaseNames.get(openThisInt);
 			//for (int i = 0; i < currentDatabase.size(); i++) {
-			database.get(openThis).start();
+			//databaseNames.get(openThisInt).start();
 			//currentDatabase.start();
                 	//} // end for loop
 		} // end try
@@ -97,4 +113,8 @@ public class CollectiveDatabase implements HasMenu, Serializable {
         } // end choose database
 } // end collective database
 
-class DatabaseList extends ArrayList<NoteCardList> {};
+//class DatabaseList extends ArrayList<NoteCardList> {};
+//this needs to have NoteCard Lists in it to access them from within properly
+//not true^ I need the databases stored in the database List, not the note card lists: have to call start() with database
+
+class DatabaseList extends ArrayList<NotesDatabase> {};
