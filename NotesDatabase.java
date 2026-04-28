@@ -62,7 +62,7 @@ public class NotesDatabase implements HasMenu, Serializable {
 		System.out.println("1) Progress Report ");
 		System.out.println("2) Add a note card to " + this.name);
 		System.out.println("3) Delete a note card from " + this.name);
-		System.out.println("4) Resort note cards in " + this.name);
+		System.out.println("4) Quiz yourself on notes in " + this.name);
 		System.out.println("______________________________");
 		System.out.println();
 		System.out.print("Your response: ");
@@ -101,10 +101,10 @@ public class NotesDatabase implements HasMenu, Serializable {
                         } // end else if
 			else if (response.equals("4")) {
                                 System.out.println();
-                                System.out.println(BOLD + "Resort notecards in " + this.name + RESET);
+                                System.out.println(BOLD + "Quiz yourself on notes in " + this.name + RESET);
                                 System.out.println("______________________________");
                                 System.out.println();
-                                sortNotes();
+                                quizYourself();
                         } // end else if
 			else {
 				System.out.println("Please enter 0, 1, 2, 3, or 4 ");
@@ -132,9 +132,8 @@ public class NotesDatabase implements HasMenu, Serializable {
 	
 	public void deleteNoteCard() {
 		for (int i = 0; i < noteCards.size(); i++) {
-			//System.out.println(i + ") " + noteCard.getWord());
 			System.out.println(i + ") " + noteCards.get(i).getWord());
-			//this one might work if the first one doesnt
+			//this is not working for some reason
 		} // end for loop
 		Scanner input = new Scanner(System.in);
 		System.out.print("Which word do you want to delete? Enter the number next to the word ");
@@ -153,6 +152,35 @@ public class NotesDatabase implements HasMenu, Serializable {
                 } // end catch 2
 	} // end delete NoteCard
 	
+	public void quizYourself() {
+		boolean keepGoing = true;
+		while (keepGoing == true) {
+			Random random = new Random();
+  			int i = random.nextInt(noteCards.size());
+                	System.out.println("Type the correct word for the definition below: ");
+			System.out.println(noteCards.get(i).getDefinition());
+			Scanner input = new Scanner(System.in);
+                	String guess = input.nextLine();
+			if (guess.equals(noteCards.get(i).getWord())) {
+				System.out.println("Correct!");
+				int correct = noteCards.get(i).getCorrect();
+				correct++;
+				noteCards.get(i).setCorrect(correct);
+			} // end if
+			else {
+				System.out.println("Incorrect!");
+                                int incorrect = noteCards.get(i).getIncorrect();
+                                incorrect++;
+                                noteCards.get(i).setIncorrect(incorrect);
+			} // end else
+			System.out.println("Keep going? Type n for no, anything else means yes!");
+			//Scanner input = new Scanner(System.in);
+                        String response = input.nextLine();
+			if (response.equals("n")) {
+				keepGoing = false;
+			} // end if
+		} // end while loop
+	} // end quiz yourself
 	public void sortNotes() {
 		System.out.println("Pretend this works for now");
 	} // end sortNotes

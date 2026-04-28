@@ -43,7 +43,7 @@ public class NoteCard implements Serializable {
 	public void setCorrect(int newCorrect) {
 		this.correct = newCorrect;
 	} // end setCorrect
-	
+
 	public int getIncorrect() {
                 return this.incorrect;
         } // end getIncorrect
