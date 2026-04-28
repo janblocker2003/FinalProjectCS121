@@ -140,9 +140,9 @@ public class NotesDatabase implements HasMenu, Serializable {
 		String deleteThis = input.nextLine();
 		try {
 			int deleteThisInt = Integer.parseInt(deleteThis);
+			System.out.println("Word " + deleteThis + ") " + noteCards.get(deleteThisInt) + "has been removed from " + this.name);
 			noteCards.remove(deleteThisInt);
 			System.out.println();
-			System.out.println("Word " + deleteThis + ") " + noteCards.get(deleteThisInt) + "has been removed from " + this.name);
 		} // end try
 		catch (NumberFormatException e) {
 			System.out.println("Please enter a valid integer next time ");
